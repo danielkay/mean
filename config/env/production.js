@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    db: 'mongodb://' + process.env["MONGODB_ADDON_USER"] + ':' + process.env["MONGODB_ADDON_PASSWORD"] + '@' + process.env["MONGODB_ADDON_HOST"] + '/' + process.env["MONGODB_ADDON_DB"],
+    db: process.env["MONGODB_ADDON_HOST"] + '/' + process.env["MONGODB_ADDON_DB"],
     facebook: {
         clientID: process.env.FACEBOOK_ID || 'APP_ID',
         clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
