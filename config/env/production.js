@@ -2,10 +2,10 @@
 
 module.exports = {
     db: {
-        uri: process.env.MONGODB_ADDON_HOST + '/' + MONGODB_ADDON_DB,
+        uri: process.env.MONGODB_ADDON_HOST + '/' + process.env.MONGODB_ADDON_DB,
         options: {
-            user: MONGODB_ADDON_USER,
-            pass: MONGODB_ADDON_PASSWORD
+            user: process.env.MONGODB_ADDON_USER,
+            pass: process.env.MONGODB_ADDON_PASSWORD
         }
     }
     facebook: {
