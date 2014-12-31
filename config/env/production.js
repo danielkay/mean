@@ -7,7 +7,7 @@ module.exports = {
             user: process.env.MONGODB_ADDON_USER,
             pass: process.env.MONGODB_ADDON_PASSWORD
         }
-    }
+    },
     facebook: {
         clientID: process.env.FACEBOOK_ID || 'APP_ID',
         clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
