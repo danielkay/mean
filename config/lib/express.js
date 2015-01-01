@@ -18,7 +18,8 @@ var config = require('../config'),
 	passport = require('passport'),
 	flash = require('connect-flash'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+    seo = require('mean-seo');
 
 /**
  * Initialize local variables
@@ -50,6 +51,12 @@ module.exports.initMiddleware = function (app) {
 
 	// Enable jsonp
 	app.enable('jsonp callback');
+
+	// Initialize SEO middleware
+	app.use(seo({
+	    cacheClient: 'disk', // Can be 'disk' or 'redis'
+	    cacheDuration: 2 * 60 * 60 * 24 * 1000, // In milliseconds for disk cache
+	}));
 
 	// Should be placed before express.static
 	app.use(compress({
