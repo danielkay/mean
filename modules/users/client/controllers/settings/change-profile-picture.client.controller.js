@@ -69,6 +69,20 @@ angular.module('users').controller('ChangeProfilePictureController', ['$http', '
 			$scope.imageURL = $scope.user.profileImageURL;
 		};
 
+		$scope.chooseDefaultPicture = function () {
+			// Reset the success / error messages
+			$scope.success = $scope.error = null;
+
+			// Set profileImageURL to gravatar
+			$scope.imageURL = $scope.user.profileImageURL = 'modules/users/img/profile/default.png';
+
+			// build request body
+			var postData = { default: true, imageURL: $scope.imageURL };
+
+			// send POST request
+			$scope.postPictureData(postData);
+		};
+
 		$scope.chooseGravatarPicture = function () {
 			// Reset the success / error messages
 			$scope.success = $scope.error = null;
@@ -76,18 +90,22 @@ angular.module('users').controller('ChangeProfilePictureController', ['$http', '
 			// Set profileImageURL to gravatar
 			$scope.imageURL = $scope.user.profileImageURL = 'https://www.gravatar.com/avatar/' + $filter('gravatar')(Authentication.user.email);
 
-			var postData = { user: $scope.user, imageURL: $scope.imageURL };
+			// build request body
+			var postData = { gravatar: true, imageURL: $scope.imageURL };
 
-			// Post profileImageURL to api
-			$http.post('/api/users/gravatar', postData).success(function(response) {
-				console.log(response);
+			// send POST request
+			$scope.postPictureData(postData);
+		};
+
+		$scope.postPictureData = function (postData) {
+			// Post postData to api
+			$http.post('/api/users/picture', postData).success(function(response) {
 				// Display success message
 				$scope.success = true;
 			}).error(function(response) {
 				// Display success message
 				$scope.error = response.message;
 			});
-
 		};
 	}
 ]);
