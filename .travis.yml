@@ -5,3 +5,7 @@ env:
   - NODE_ENV=travis
 services:
   - mongodb
+install:
+  - npm install
+script:
+  - grunt build
