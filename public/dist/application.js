@@ -792,8 +792,8 @@ angular.module('users').controller('ChangePasswordController', ['$scope', '$http
 
 'use strict';
 
-angular.module('users').controller('ChangeProfilePictureController', ['$scope', '$timeout', '$window', 'Authentication', 'FileUploader',
-	function ($scope, $timeout, $window, Authentication, FileUploader) {
+angular.module('users').controller('ChangeProfilePictureController', ['$http', '$scope', '$timeout', '$window', '$filter', 'Authentication', 'FileUploader',
+	function ($http, $scope, $timeout, $window, $filter, Authentication, FileUploader) {
 		$scope.user = Authentication.user;
 		$scope.imageURL = $scope.user.profileImageURL;
 
@@ -859,6 +859,27 @@ angular.module('users').controller('ChangeProfilePictureController', ['$scope', 
 		$scope.cancelUpload = function () {
 			$scope.uploader.clearQueue();
 			$scope.imageURL = $scope.user.profileImageURL;
+		};
+
+		$scope.chooseGravatarPicture = function () {
+			// Reset the success / error messages
+			$scope.success = $scope.error = null;
+
+			// Set profileImageURL to gravatar
+			$scope.imageURL = $scope.user.profileImageURL = 'https://www.gravatar.com/avatar/' + $filter('gravatar')(Authentication.user.email);
+
+			var postData = { user: $scope.user, imageURL: $scope.imageURL };
+
+			// Post profileImageURL to api
+			$http.post('/api/users/gravatar', postData).success(function(response) {
+				console.log(response);
+				// Display success message
+				$scope.success = true;
+			}).error(function(response) {
+				// Display success message
+				$scope.error = response.message;
+			});
+
 		};
 	}
 ]);
