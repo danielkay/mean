@@ -57,63 +57,51 @@ exports.changeProfilePicture = function (req, res) {
 	var message = null;
 
 	if (user) {
-		fs.writeFile('./modules/users/client/img/profile/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
-			if (uploadError) {
-				return res.status(400).send({
-					message: 'Error occurred while uploading profile picture'
-				});
-			} else {
-				user.profileImageURL = 'modules/users/img/profile/uploads/' + req.files.file.name;
+		if(req.body.gravatar || req.body.default) {
+			user.profileImageURL = req.body.imageURL;
 
-				user.save(function (saveError) {
-					if (saveError) {
-						return res.status(400).send({
-							message: errorHandler.getErrorMessage(saveError)
-						});
-					} else {
-						req.login(user, function (err) {
-							if (err) {
-								res.status(400).send(err);
-							} else {
-								res.json(user);
-							}
-						});
-					}
-				});
-			}
-		});
-	} else {
-		res.status(400).send({
-			message: 'User is not signed in'
-		});
-	}
-};
+			user.save(function (saveError) {
+				if (saveError) {
+					return res.status(400).send({
+						message: errorHandler.getErrorMessage(saveError)
+					});
+				} else {
+					req.login(user, function (err) {
+						if (err) {
+							res.status(400).send(err);
+						} else {
+							res.json(user);
+						}
+					});
+				}
+			});
+		} else {
+			fs.writeFile('./modules/users/client/img/profile/uploads/' + req.files.file.name, req.files.file.buffer, function (uploadError) {
+				if (uploadError) {
+					return res.status(400).send({
+						message: 'Error occurred while uploading profile picture'
+					});
+				} else {
+					user.profileImageURL = 'modules/users/img/profile/uploads/' + req.files.file.name;
 
-/**
- * Choose Gravatar profile picture
- */
-exports.gravatarProfilePicture = function (req, res) {
-	var user = req.user;
-	var message = null;
-
-	if (user) {
-		user.profileImageURL = req.body.imageURL;
-
-		user.save(function (saveError) {
-			if (saveError) {
-				return res.status(400).send({
-					message: errorHandler.getErrorMessage(saveError)
-				});
-			} else {
-				req.login(user, function (err) {
-					if (err) {
-						res.status(400).send(err);
-					} else {
-						res.json(user);
-					}
-				});
-			}
-		});
+					user.save(function (saveError) {
+						if (saveError) {
+							return res.status(400).send({
+								message: errorHandler.getErrorMessage(saveError)
+							});
+						} else {
+							req.login(user, function (err) {
+								if (err) {
+									res.status(400).send(err);
+								} else {
+									res.json(user);
+								}
+							});
+						}
+					});
+				}
+			});
+		}
 	} else {
 		res.status(400).send({
 			message: 'User is not signed in'
