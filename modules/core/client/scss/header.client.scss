@@ -1,0 +1,52 @@
+$navbarBackground-fallback: rgb(240, 240, 240);
+$navbarBackground: rgba(240, 240, 240, 0.9);
+
+.navbar-grey-alpha {
+	background-color: $navbarBackground-fallback;
+	background-color: $navbarBackground;
+
+	border-bottom: 1px solid darken($navbarBackground-fallback,20%);
+	border-bottom: 1px solid darken($navbarBackground,20%);
+
+	.navbar-header > .navbar-toggle {
+		background-color: darken($navbarBackground-fallback, 10%);
+		background-color: darken($navbarBackground, 10%);
+
+		margin-top: 18px;
+
+		.icon-bar {
+			background-color: black;
+		}
+	}
+
+	.navbar-header > a {
+		line-height: 20px;
+		font-weight: 300;
+		color: rgb(119, 119, 119);
+		margin: 12px;
+		font-family: Lato, Helvetica, Arial, sans-serif;
+		font-size: 1.6em;
+	}
+
+	.navbar-collapse > .navbar-nav > li > a {
+		line-height: 26px;
+		font-weight: 300;
+		color: rgb(119, 119, 119);
+		font-family: Lato, Helvetica, Arial, sans-serif;
+		font-size: 1.2em;
+		cursor: pointer;
+	}
+
+	.navbar-collapse > .navbar-left > li > a {
+		padding: 24px 15px 24px 15px;
+	}
+
+	.navbar-collapse > .navbar-right > li > a {
+		margin: 12px;
+	}
+
+	.navbar-collapse > .navbar-left > li > a:hover {
+		background-color: darken($navbarBackground-fallback,10%);
+		background-color: darken($navbarBackground,10%);
+	}
+}
