@@ -173,7 +173,6 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$statePa
 			$scope.article = Articles.get({
 				articleId: $stateParams.articleId
 			});
-			console.dir($scope.article);
 		};
 	}
 ]);
