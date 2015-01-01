@@ -6,6 +6,5 @@ node_modules/
 public/lib
 .bower-*/
 .idea/
-uploads
 
 *.sublime-workspace
