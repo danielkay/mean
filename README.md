@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/danielkay/mean.svg?branch=master)](https://travis-ci.org/danielkay/mean)
 
+This is a simple application which serves as both an online Web Development Portfolio and a collection of Articles on various web development topics. It is built on top of MEAN.JS
+
 MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for [MongoDB](http://www.mongodb.org/), [Node.js](http://www.nodejs.org/), [Express](http://expressjs.com/), and [AngularJS](http://angularjs.org/) based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components. 
 
 ## Before You Begin 
@@ -28,25 +30,14 @@ $ npm install -g bower
 $ sudo npm install -g grunt-cli
 ```
 
-## Downloading MEAN.JS
-There are several ways you can get the MEAN.JS boilerplate: 
-
-### Yo Generator 
-The recommended way would be to use the [Official Yo Generator](http://meanjs.org/generator.html) which will generate the latest stable copy of the MEAN.JS boilerplate and supplies multiple sub-generators to ease your daily development cycles.
+## Downloading MEAN.JS Portfolio App
 
 ### Cloning The GitHub Repository
-You can also use Git to directly clone the MEAN.JS repository:
+You can also use Git to directly clone the MEAN.JS Portfolio App repository:
 ```
-$ git clone https://github.com/meanjs/mean.git meanjs
+$ git clone https://github.com/danielkay/mean.git mean
 ```
-This will clone the latest version of the MEAN.JS repository to a **meanjs** folder.
-
-### Downloading The Repository Zip File
-Another way to use the MEAN.JS boilerplate is to download a zip copy from the [master branch on github](https://github.com/meanjs/mean/archive/master.zip). You can also do this using `wget` command:
-```
-$ wget https://github.com/meanjs/mean/archive/master.zip -O meanjs.zip; unzip meanjs.zip; rm meanjs.zip
-```
-Don't forget to rename **mean-master** after your project name.
+This will clone the latest version of the MEAN.JS Portfolio App repository to a **mean** folder.
 
 ## Quick Install
 Once you've downloaded the boilerplate and installed all the prerequisites, you're just a few steps away from starting to develop you MEAN application.
@@ -99,6 +90,16 @@ $
 $ docker run -p 3000:3000 -p 35729:35729 -v /Users/mdl/workspace/mean-stack/mean/public:/home/mean/public -v /Users/mdl/workspa/mean-stack/mean/app:/home/mean/app --link db:db_1 mean
 ```
 
+## Developing the MEAN.JS Portfolio App
+
+### Yo Generator 
+The recommended way to add modules to the Portfolio App would be to use the [Official Yo Generator](http://meanjs.org/generator.html) which supplies multiple sub-generators to ease your daily development cycles.
+
+### Git Workflow
+All development on the project should follow the Git Branching Workflow proposed by Vincent Driessen [HERE](http://nvie.com/posts/a-successful-git-branching-model/).
+
+# MEAN.JS
+
 ## Getting Started With MEAN.JS
 You have your application running but there are a lot of stuff to understand, we recommend you'll go over the [Offical Documentation](http://meanjs.org/docs.html). 
 In the docs we'll try to explain both general concepts of MEAN components and give you some guidelines to help you improve your development procees. We tried covering as many aspects as possible, and will keep update it by your request, you can also help us develop the documentation better by checking out the *gh-pages* branch of this repository.
@@ -108,9 +109,6 @@ In the docs we'll try to explain both general concepts of MEAN components and gi
 * Join #meanjs on freenode.
 * Discuss it in the new [Google Group](https://groups.google.com/d/forum/meanjs)
 * Ping us on [Twitter](http://twitter.com/meanjsorg) and [Facebook](http://facebook.com/meanjs)
-
-## Live Example
-Browse the live MEAN.JS example on [http://meanjs.herokuapp.com](http://meanjs.herokuapp.com).
 
 ## Credits
 Inspired by the great work of [Madhusudhan Srinivasa](https://github.com/madhums/)
