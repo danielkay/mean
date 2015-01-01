@@ -90,6 +90,38 @@ exports.changeProfilePicture = function (req, res) {
 };
 
 /**
+ * Choose Gravatar profile picture
+ */
+exports.gravatarProfilePicture = function (req, res) {
+	var user = req.user;
+	var message = null;
+
+	if (user) {
+		user.profileImageURL = req.body.imageURL;
+
+		user.save(function (saveError) {
+			if (saveError) {
+				return res.status(400).send({
+					message: errorHandler.getErrorMessage(saveError)
+				});
+			} else {
+				req.login(user, function (err) {
+					if (err) {
+						res.status(400).send(err);
+					} else {
+						res.json(user);
+					}
+				});
+			}
+		});
+	} else {
+		res.status(400).send({
+			message: 'User is not signed in'
+		});
+	}
+};
+
+/**
  * Send User
  */
 exports.me = function (req, res) {
