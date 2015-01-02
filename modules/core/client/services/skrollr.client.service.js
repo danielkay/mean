@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$window', 
-    function($document, $q, $rootScope, $window){
+angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$window', 'ENV',
+    function($document, $q, $rootScope, $window, ENV){
         var defer = $q.defer();
 
         function onScriptLoad() {
@@ -24,7 +24,7 @@ angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$wi
         var scriptTag = $document[0].createElement('script');
         scriptTag.type = 'text/javascript'; 
         scriptTag.async = true;
-        scriptTag.src = 'lib/skrollr/src/skrollr.js';
+        scriptTag.src = ENV.skrollrDir;
 
         scriptTag.onreadystatechange = function () {
             if (this.readyState === 'complete') onScriptLoad();
