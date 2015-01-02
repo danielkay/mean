@@ -4,7 +4,7 @@
 var ApplicationConfiguration = (function() {
 	// Init module configuration options
 	var applicationModuleName = 'mean';
-	var applicationModuleVendorDependencies = ['ngResource', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload', 'ngMd5'];
+	var applicationModuleVendorDependencies = ['environment', 'ngResource', 'ngAnimate', 'ui.router', 'ui.bootstrap', 'ui.utils', 'angularFileUpload', 'ngMd5'];
 
 	// Add a new vertical module
 	var registerModule = function(moduleName, dependencies) {
@@ -251,6 +251,11 @@ angular.module('chat').controller('ChatController', ['$scope', 'Socket',
     }
 ]); 
 
+angular.module('environment', [])
+
+.constant('ENV', {name:'development',skrollrDir:'lib/skrollr/src/skrollr.js'})
+
+;
 
 'use strict';
 
@@ -302,29 +307,28 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 ]);
 'use strict';
 
-angular.module('core')
-	.directive('skrollrInit', [ 'SkrollrService', 
-        function(SkrollrService){
-            return {
-                link: function(scope, element, attrs){
-                    SkrollrService.skrollr().then(function(skrollr){
-                        skrollr.refresh();
-                    });
+angular.module('core').directive('skrollrInit', [ 'skrollr', 
+    function(SkrollrService){
+        return {
+            link: function(scope, element, attrs){
+                SkrollrService.skrollr().then(function(skrollr){
+                    skrollr.refresh();
+                });
 
-                   //This will watch for any new elements being added as children to whatever element this directive is placed on. If new elements are added, Skrollr will be refreshed (pulling in the new elements
-                   scope.$watch(
-                       function () { return element[0].childNodes.length; },
-                       function (newValue, oldValue) {
-                       if (newValue !== oldValue) {
-                           SkrollrService.skrollr().then(function(skrollr){
-                               skrollr.refresh();
-                           });
-                       }
-                   });
-                }
-            };
-        }
-    ]);
+               //This will watch for any new elements being added as children to whatever element this directive is placed on. If new elements are added, Skrollr will be refreshed (pulling in the new elements
+               scope.$watch(
+                   function () { return element[0].childNodes.length; },
+                   function (newValue, oldValue) {
+                   if (newValue !== oldValue) {
+                       SkrollrService.skrollr().then(function(skrollr){
+                           skrollr.refresh();
+                       });
+                   }
+               });
+            }
+        };
+    }
+]);
 'use strict';
 
 //Menu service used for managing  menus
@@ -507,8 +511,8 @@ angular.module('core').service('Menus', [
 
 'use strict';
 
-angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$window', 
-    function($document, $q, $rootScope, $window){
+angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$window', 'ENV',
+    function($document, $q, $rootScope, $window, ENV){
         var defer = $q.defer();
 
         function onScriptLoad() {
@@ -531,7 +535,7 @@ angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$wi
         var scriptTag = $document[0].createElement('script');
         scriptTag.type = 'text/javascript'; 
         scriptTag.async = true;
-        scriptTag.src = 'lib/skrollr/src/skrollr.js';
+        scriptTag.src = ENV.skrollrDir;
 
         scriptTag.onreadystatechange = function () {
             if (this.readyState === 'complete') onScriptLoad();
