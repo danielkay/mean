@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  min-height: 400px;
+  min-height: 320px;
   overflow: hidden;
   background: url("/modules/core/img/home/mixer.svg");
   -webkit-background-size: cover;
@@ -20,7 +20,7 @@
 
 .pageHeader > .scroll-hint {
   position: absolute;
-  bottom: 0.5em;
+  bottom: 1.5em;
   width: 100vw;
   text-align: center;
   opacity: 0.4; }
