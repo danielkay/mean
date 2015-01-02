@@ -1,0 +1,34 @@
+.navbar-grey-alpha {
+  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 0.9);
+  border-bottom: 1px solid #bdbdbd;
+  border-bottom: 1px solid rgba(189, 189, 189, 0.9); }
+  .navbar-grey-alpha .navbar-header > .navbar-toggle {
+    background-color: #d6d6d6;
+    background-color: rgba(214, 214, 214, 0.9);
+    margin-top: 18px; }
+    .navbar-grey-alpha .navbar-header > .navbar-toggle .icon-bar {
+      background-color: black; }
+  .navbar-grey-alpha .navbar-header > a {
+    line-height: 20px;
+    font-weight: 300;
+    color: #777777;
+    margin: 12px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 1.6em; }
+  .navbar-grey-alpha .navbar-collapse > .navbar-nav > li > a {
+    line-height: 26px;
+    font-weight: 300;
+    color: #777777;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    font-size: 1.2em;
+    cursor: pointer; }
+  .navbar-grey-alpha .navbar-collapse > .navbar-left > li > a {
+    padding: 24px 15px 24px 15px; }
+  .navbar-grey-alpha .navbar-collapse > .navbar-right > li > a {
+    margin: 12px; }
+  .navbar-grey-alpha .navbar-collapse > .navbar-left > li > a:hover {
+    background-color: #d6d6d6;
+    background-color: rgba(214, 214, 214, 0.9); }
+
+/*# sourceMappingURL=header.css.map */
