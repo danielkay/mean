@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  min-height: 640px;
+  min-height: 480px;
   overflow: hidden;
   background: url("/modules/core/img/home/mixer.svg");
   -webkit-background-size: cover;
@@ -27,18 +27,15 @@
 
 .pageHeader > .contact-panel {
   position: absolute;
-  bottom: 5em;
-  right: 5em;
+  bottom: 2em;
+  right: 2em;
   padding: 1em;
   opacity: 0.8;
   background-color: #DDD;
   border-radius: 10px; }
   .pageHeader > .contact-panel p:last-of-type {
     margin-bottom: 0; }
-  .pageHeader > .contact-panel p > .contact-info {
-    line-height: 2em;
-    padding-right: 1em; }
-  .pageHeader > .contact-panel p > .contact-label {
+  .pageHeader > .contact-panel p > a > .contact-label {
     float: right; }
 
 .pageHeader .jumbotron {
