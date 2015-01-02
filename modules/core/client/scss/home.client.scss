@@ -6,7 +6,7 @@ $tertiary: darken($primary, 10%);
     position: relative;
     width: 100vw;
     height: 100vh;
-    min-height: 640px;
+    min-height: 480px;
     overflow: hidden;
 
     background: url('/modules/core/img/home/mixer.svg'); 
@@ -35,26 +35,18 @@ $tertiary: darken($primary, 10%);
 
 .pageHeader > .contact-panel {
     position: absolute;
-    bottom: 5em;
-    right: 5em;
+    bottom: 2em;
+    right: 2em;
     padding: 1em;
     opacity: 0.8;
     background-color: #DDD;
     border-radius: 10px;
 
-    p {
-    }
-
     p:last-of-type {
         margin-bottom: 0;
     }
 
-    p > .contact-info {
-        line-height: 2em;
-        padding-right: 1em;
-    }
-
-    p > .contact-label {
+    p > a > .contact-label {
         float: right;
     }
 }
