@@ -22,6 +22,35 @@ module.exports = function (grunt) {
 				NODE_ENV: 'production'
 			}
 		},
+		ngconstant: {
+			options: {
+				space: ' ',
+				name: 'environment'
+			},
+			// Environment targets
+			development: {
+				options: {
+					dest: 'modules/core/client/config/core.client.environment.js'
+				},
+				constants: {
+					ENV: {
+						name: 'development',
+						skrollrDir: 'lib/skrollr/src/skrollr.js'
+					}
+				}
+			},
+			production: {
+				options: {
+					dest: 'modules/core/client/config/core.client.environment.js'
+				},
+				constants: {
+					ENV: {
+						name: 'production',
+						skrollrDir: 'lib/skrollr/dist/skrollr.min.js'
+					}
+				}
+			}
+		},
 		watch: {
 			serverViews: {
 				files: defaultAssets.server.views,
@@ -213,21 +242,25 @@ module.exports = function (grunt) {
 		});
 	});
 
+	// Set environment variables
+	grunt.registerTask('devconstants', ['ngconstant:development']);
+	grunt.registerTask('prodconstants', ['ngconstant:production']);
+
 	// Lint CSS and JavaScript files.
 	grunt.registerTask('lint', ['sass', 'less', 'jshint', 'csslint']);
 
 	// Lint project files and minify them into two production files.
-	grunt.registerTask('build', ['env:dev', 'lint', 'ngAnnotate', 'uglify', 'cssmin']);
+	grunt.registerTask('build', ['env:dev', 'devconstants', 'lint', 'ngAnnotate', 'uglify', 'cssmin']);
 
 	// Run the project tests
 	grunt.registerTask('test', ['env:test', 'mongoose', 'mochaTest', 'karma:unit']);
 
 	// Run the project in development mode
-	grunt.registerTask('default', ['env:dev', 'lint', 'concurrent:default']);
+	grunt.registerTask('default', ['env:dev', 'devconstants', 'lint', 'concurrent:default']);
 
 	// Run the project in debug mode
-	grunt.registerTask('debug', ['env:dev', 'lint', 'concurrent:debug']);
+	grunt.registerTask('debug', ['env:dev', 'devconstants', 'lint', 'concurrent:debug']);
 
 	// Run the project in production mode
-	grunt.registerTask('prod', ['build', 'env:prod', 'concurrent:default']);
+	grunt.registerTask('prod', ['build', 'env:prod', 'prodconstants', 'concurrent:default']);
 };

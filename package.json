@@ -13,7 +13,7 @@
     "npm": "1.4.x"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "grunt prodconstants; node server.js",
     "test": "grunt test",
     "postinstall": "bower install --config.interactive=false"
   },
@@ -33,6 +33,7 @@
     "forever": "~0.11.0",
     "glob": "~4.0.5",
     "grunt-cli": "~0.1.13",
+    "grunt-ng-constant": "^1.0.0",
     "helmet": "~0.4.0",
     "lodash": "~2.4.1",
     "mean-seo": "0.0.8",
