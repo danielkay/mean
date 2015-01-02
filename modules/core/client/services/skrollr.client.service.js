@@ -24,7 +24,7 @@ angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$wi
         var scriptTag = $document[0].createElement('script');
         scriptTag.type = 'text/javascript'; 
         scriptTag.async = true;
-        scriptTag.src = 'lib/skrollr/dist/skrollr.min.js';
+        scriptTag.src = 'lib/skrollr/src/skrollr.js';
 
         scriptTag.onreadystatechange = function () {
             if (this.readyState === 'complete') onScriptLoad();
