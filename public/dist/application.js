@@ -251,6 +251,7 @@ angular.module('chat').controller('ChatController', ['$scope', 'Socket',
     }
 ]); 
 
+
 'use strict';
 
 // Setting up route
@@ -299,6 +300,31 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		$scope.authentication = Authentication;
 	}
 ]);
+'use strict';
+
+angular.module('core')
+	.directive('skrollrInit', [ 'SkrollrService', 
+        function(SkrollrService){
+            return {
+                link: function(scope, element, attrs){
+                    SkrollrService.skrollr().then(function(skrollr){
+                        skrollr.refresh();
+                    });
+
+                   //This will watch for any new elements being added as children to whatever element this directive is placed on. If new elements are added, Skrollr will be refreshed (pulling in the new elements
+                   scope.$watch(
+                       function () { return element[0].childNodes.length; },
+                       function (newValue, oldValue) {
+                       if (newValue !== oldValue) {
+                           SkrollrService.skrollr().then(function(skrollr){
+                               skrollr.refresh();
+                           });
+                       }
+                   });
+                }
+            };
+        }
+    ]);
 'use strict';
 
 //Menu service used for managing  menus
@@ -479,6 +505,49 @@ angular.module('core').service('Menus', [
     }
 ]);
 
+'use strict';
+
+angular.module('core').service('skrollr', ['$document', '$q', '$rootScope', '$window', 
+    function($document, $q, $rootScope, $window){
+        var defer = $q.defer();
+
+        function onScriptLoad() {
+            // Load client in the browser
+            $rootScope.$apply(function() {
+            	// Don't initialise the plugin if we are on a mobile browser
+                if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+                	var s = $window.skrollr.init({
+                        forceHeight: false
+                    });
+                	defer.resolve(s);
+                }
+            });
+        }
+
+        // Create a script tag with skrollr as the source
+        // and call our onScriptLoad callback when it
+        // has been loaded
+
+        var scriptTag = $document[0].createElement('script');
+        scriptTag.type = 'text/javascript'; 
+        scriptTag.async = true;
+        scriptTag.src = 'lib/skrollr/src/skrollr.js';
+
+        scriptTag.onreadystatechange = function () {
+            if (this.readyState === 'complete') onScriptLoad();
+        };
+
+        scriptTag.onload = onScriptLoad;
+
+        var s = $document[0].getElementsByTagName('body')[0];
+        s.appendChild(scriptTag);
+
+        return {
+            skrollr: function() { return defer.promise; }
+        };
+
+    }
+ ]);
 'use strict';
 
 // Create the Socket.io wrapper service
