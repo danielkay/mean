@@ -4,8 +4,9 @@ $tertiary: darken($primary, 10%);
 
 .pageHeader {
     position: relative;
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
+    min-height: 640px;
     overflow: hidden;
 
     background: url('/modules/core/img/home/mixer.svg'); 
@@ -26,10 +27,36 @@ $tertiary: darken($primary, 10%);
 
 .pageHeader > .scroll-hint {
     position: absolute;
-    bottom: 1em;
+    bottom: 0.5em;
     width: 100vw;
     text-align: center;
     opacity: 0.4;
+}
+
+.pageHeader > .contact-panel {
+    position: absolute;
+    bottom: 5em;
+    right: 5em;
+    padding: 1em;
+    opacity: 0.8;
+    background-color: #DDD;
+    border-radius: 10px;
+
+    p {
+    }
+
+    p:last-of-type {
+        margin-bottom: 0;
+    }
+
+    p > .contact-info {
+        line-height: 2em;
+        padding-right: 1em;
+    }
+
+    p > .contact-label {
+        float: right;
+    }
 }
 
 .pageHeader .jumbotron {
