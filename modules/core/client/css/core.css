@@ -1,4 +1,4 @@
-.content > section .container {
+.content > section > section.container:not(.home) {
 	margin-top: 75px;
 }
 .undecorated-link:hover {
