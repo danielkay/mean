@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Portfolio by danielkay</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Portfolio</h1>
+        <p>MEAN.JS Portfolio Application</p>
+
+        <p class="view"><a href="https://github.com/danielkay/mean">View the Project on GitHub <small>danielkay/mean</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/danielkay/mean/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/danielkay/mean/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/danielkay/mean">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="meanjs-portfolio-application" class="anchor" href="#meanjs-portfolio-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>MEAN.JS Portfolio Application</h1>
+
+<p><a href="https://travis-ci.org/danielkay/mean"><img src="https://travis-ci.org/danielkay/mean.svg?branch=master" alt="Build Status"></a></p>
+
+<p>This is a simple application, built on top of MEAN.JS, which serves as both an online Web Development Portfolio and a collection of Articles on various web development topics.</p>
+
+<p>MEAN.JS is a full-stack JavaScript open-source solution, which provides a solid starting point for <a href="http://www.mongodb.org/">MongoDB</a>, <a href="http://www.nodejs.org/">Node.js</a>, <a href="http://expressjs.com/">Express</a>, and <a href="http://angularjs.org/">AngularJS</a> based applications. The idea is to solve the common issues with connecting those frameworks, build a robust framework to support daily development needs, and help developers use better practices while working with popular JavaScript components.</p>
+
+<h2>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prerequisites</h2>
+
+<p>Make sure you have installed all these prerequisites on your development machine.</p>
+
+<ul>
+<li>Node.js - <a href="http://www.nodejs.org/download/">Download &amp; Install Node.js</a> and the npm package manager, if you encounter any problems, you can also use this <a href="https://gist.github.com/isaacs/579814">Github Gist</a> to install Node.js.</li>
+<li>MongoDB - <a href="http://www.mongodb.org/downloads">Download &amp; Install MongoDB</a>, and make sure it's running on the default port (27017).</li>
+<li>Bower - You're going to use the <a href="http://bower.io/">Bower Package Manager</a> to manage your front-end packages, in order to install it make sure you've installed Node.js and npm, then install bower globally using npm:</li>
+</ul>
+
+<pre><code>$ npm install -g bower
+</code></pre>
+
+<ul>
+<li>Grunt - You're going to use the <a href="http://gruntjs.com/">Grunt Task Runner</a> to automate your development process, in order to install it make sure you've installed Node.js and npm, then install grunt globally using npm:</li>
+</ul>
+
+<pre><code>$ sudo npm install -g grunt-cli
+</code></pre>
+
+<h2>
+<a id="downloading-meanjs-portfolio-app" class="anchor" href="#downloading-meanjs-portfolio-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloading MEAN.JS Portfolio App</h2>
+
+<h3>
+<a id="cloning-the-github-repository" class="anchor" href="#cloning-the-github-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cloning The GitHub Repository</h3>
+
+<p>You can also use Git to directly clone the MEAN.JS Portfolio App repository:</p>
+
+<pre><code>$ git clone https://github.com/danielkay/mean.git mean
+</code></pre>
+
+<p>This will clone the latest version of the MEAN.JS Portfolio App repository to a <strong>mean</strong> folder.</p>
+
+<h2>
+<a id="quick-install" class="anchor" href="#quick-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Install</h2>
+
+<p>Once you've downloaded the boilerplate and installed all the prerequisites, you're just a few steps away from starting to develop you MEAN application.</p>
+
+<p>The first thing you should do is install the Node.js dependencies. The boilerplate comes pre-bundled with a package.json file that contains the list of modules you need to start your application, to learn more about the modules installed visit the NPM &amp; Package.json section.</p>
+
+<p>To install Node.js dependencies you're going to use npm again, in the application folder run this in the command-line:</p>
+
+<pre><code>$ npm install
+</code></pre>
+
+<p>This command does a few things:</p>
+
+<ul>
+<li>First it will install the dependencies needed for the application to run.</li>
+<li>If you're running in a development environment, it will then also install development dependencies needed for testing and running your application.</li>
+<li>Finally, when the install process is over, npm will initiate a bower installcommand to install all the front-end modules needed for the application</li>
+</ul>
+
+<h2>
+<a id="running-your-application" class="anchor" href="#running-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running Your Application</h2>
+
+<p>After the install process is over, you'll be able to run your application using Grunt, just run grunt default task:</p>
+
+<pre><code>$ grunt
+</code></pre>
+
+<p>Your application should run on the 3000 port so in your browser just go to <a href="http://localhost:3000">http://localhost:3000</a></p>
+
+<p>That's it! your application should be running by now, to proceed with your development check the other sections in this documentation. 
+If you encounter any problem try the Troubleshooting section.</p>
+
+<h2>
+<a id="development-and-deployment-with-docker" class="anchor" href="#development-and-deployment-with-docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development and deployment With Docker</h2>
+
+<ul>
+<li>Install <a href="http://www.docker.com/">Docker</a>
+</li>
+<li><p>Install <a href="https://github.com/orchardup/fig">Fig</a></p></li>
+<li><p>Local development and testing with fig: </p></li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>$ fig up</pre></div>
+
+<ul>
+<li>Local development and testing with just Docker:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>$ docker build -t mean <span class="pl-s3">.</span>
+$ docker run -p 27017:27017 -d --name db mongo
+$ docker run -p 3000:3000 --link db:db_1 mean
+$</pre></div>
+
+<ul>
+<li>To enable live reload forward 35729 port and mount /app and /public as volumes:</li>
+</ul>
+
+<div class="highlight highlight-bash"><pre>$ docker run -p 3000:3000 -p 35729:35729 -v /Users/mdl/workspace/mean-stack/mean/public:/home/mean/public -v /Users/mdl/workspa/mean-stack/mean/app:/home/mean/app --link db:db_1 mean</pre></div>
+
+<h2>
+<a id="developing-the-meanjs-portfolio-app" class="anchor" href="#developing-the-meanjs-portfolio-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Developing the MEAN.JS Portfolio App</h2>
+
+<h3>
+<a id="yo-generator" class="anchor" href="#yo-generator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Yo Generator</h3>
+
+<p>The recommended way to add modules to the Portfolio App would be to use the <a href="http://meanjs.org/generator.html">Official Yo Generator</a> which supplies multiple sub-generators to ease your daily development cycles.</p>
+
+<h3>
+<a id="git-workflow" class="anchor" href="#git-workflow" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git Workflow</h3>
+
+<p>All development on the project should follow the Git Branching Workflow proposed by Vincent Driessen <a href="http://nvie.com/posts/a-successful-git-branching-model/">HERE</a>.</p>
+
+<h1>
+<a id="meanjs" class="anchor" href="#meanjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>MEAN.JS</h1>
+
+<h2>
+<a id="getting-started-with-meanjs" class="anchor" href="#getting-started-with-meanjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started With MEAN.JS</h2>
+
+<p>You have your application running but there are a lot of stuff to understand, we recommend you'll go over the <a href="http://meanjs.org/docs.html">Offical Documentation</a>. 
+In the docs we'll try to explain both general concepts of MEAN components and give you some guidelines to help you improve your development procees. We tried covering as many aspects as possible, and will keep update it by your request, you can also help us develop the documentation better by checking out the <em>gh-pages</em> branch of this repository.</p>
+
+<h2>
+<a id="community" class="anchor" href="#community" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community</h2>
+
+<ul>
+<li>Use to <a href="http://meanjs.org">Offical Website</a> to learn about changes and the roadmap.</li>
+<li>Join #meanjs on freenode.</li>
+<li>Discuss it in the new <a href="https://groups.google.com/d/forum/meanjs">Google Group</a>
+</li>
+<li>Ping us on <a href="http://twitter.com/meanjsorg">Twitter</a> and <a href="http://facebook.com/meanjs">Facebook</a>
+</li>
+</ul>
+
+<h2>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<p>Inspired by the great work of <a href="https://github.com/madhums/">Madhusudhan Srinivasa</a>
+The MEAN name was coined by <a href="http://blog.mongodb.org/post/49262866911/the-mean-stack-mongodb-expressjs-angularjs-and">Valeri Karpov</a></p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/danielkay">danielkay</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
