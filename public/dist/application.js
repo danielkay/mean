@@ -97,7 +97,7 @@ angular.module('articles').config(['$stateProvider',
 		state('articles', {
 			abstract: true,
 			url: '/articles',
-			template: '<ui-view/>'
+			template: '<section class="container" data-ui-view/>'
 		}).
 		state('articles.list', {
 			url: '',
